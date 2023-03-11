@@ -37,9 +37,9 @@ jobs:
       - name: Add key to keyring
         run: ssh  -i private_key -o StrictHostKeyChecking=no root@${{ secrets.SSH_HOST }}
       - name: Set up environment
-        run: ssh -i private_key root@${{ secrets.SSH_HOST }} 'cd ~/backend-api; echo -e "${{ secrets.ENV_CONTENTS_DEV }}" > .env'
+        run: ssh -i private_key root@${{ secrets.SSH_HOST }} 'cd ~/bakend-api; echo -e "${{ secrets.ENV_CONTENTS_DEV }}" > .env'
       - name: Build development stand
-        run: ssh -i private_key root@${{ secrets.SSH_HOST }} 'cd ~/backend-api; docker-compose build --no-cache'
+        run: ssh -i private_key root@${{ secrets.SSH_HOST }} 'cd ~/bakend-api; docker-compose build --no-cache'
   Run:
     runs-on: ubuntu-latest
     needs: [Prepare]
