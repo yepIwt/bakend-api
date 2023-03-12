@@ -36,6 +36,8 @@ upgrade_head:
 downgrade:
 	alembic -c app/db/alembic.ini downgrade -1
 
+down:
+	docker-compose down || true
 	
 test: db
 	$(TEST)
